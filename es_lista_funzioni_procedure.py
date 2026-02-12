@@ -39,9 +39,10 @@ def contaSopraSoglia(lista, soglia):
     print(contatore)
 
 
-if _name=="main_":
+if __name__=="__main__":
     listaM = []
     creaLista(listaM)
     mediaValori = media(listaM)
     sogliaValori = calcolaSoglia(listaM)
-    countSopra = contaSopraSoglia(listaM, sogliaValori)
+    print(listaM)
+    contaSopraSoglia(listaM, sogliaValori)
