@@ -3,7 +3,7 @@
 #il numero di elementi sopra una soglia numerica
 #sottoproblemi:1)genera una lista di numeri conpresi tra 1 e 100 2)modificare la lista con la regol sopra 3)contare il numeri di elementi sopra soglia
 import random
-
+from kallax import *
 def creaLista(lista):
     nUno=input("Inserire il primo estremo: ")
     nUno=int(nUno)
@@ -22,12 +22,16 @@ def media(lista):
         sommaElementi = sommaElementi + elemento
     mediaElementi = sommaElementi / len(lista)
     return mediaElementi
+
+def massimoLista(lista):
+    massimo=lista[0]
+    for i in range(l,len(lista)):
+        if lista[i]>massimo:
+            massimo=lista[i]
+            return(massimo)
         
 def calcolaSoglia(lista):
-    massimo = 0
-    for elemento in lista:
-        if elemento > massimo:
-            massimo = elemento
+    massimo=massimoLista(lista)
     soglia = massimo - 10
     return soglia
 
@@ -46,3 +50,4 @@ if __name__=="__main__":
     sogliaValori = calcolaSoglia(listaM)
     print(listaM)
     contaSopraSoglia(listaM, sogliaValori)
+    
