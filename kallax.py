@@ -6,8 +6,8 @@ def massimoLista(lista):
             return(massimo)
         
 def minimolista(lista):
-    minimo = lista[0]
-    for i in range(0, len(lista)):
-        if lista[i] < minimo:
-            minimo = lista[i]
-    return minimo
+    minimo=lista[0]
+    for i in range(0,len(lista)):
+        if lista[i]<minimo:
+            minimo=lista[i]
+            return(minimo)
