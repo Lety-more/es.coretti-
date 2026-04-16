@@ -43,3 +43,5 @@ dev_std_gio = deviazione_standard(varianza_gio, "Giovedi")
 dev_std_ven = deviazione_standard(varianza_ven, "Venerdi")
 dev_std_sab = deviazione_standard(varianza_sab, "Sabato")
 dev_std_dom = deviazione_standard(varianza_dom, "Domenica")
+#istogramma
+crea_istogramma(lunedi)
