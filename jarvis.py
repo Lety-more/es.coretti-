@@ -1,0 +1,42 @@
+# es preparazione verifica: analisi statistica temperature settimanali
+import random # Importa la libreria per generare numeri casuali
+
+# Funzione per riempire la lista di un giorno con 24 temperature (una per ora)
+def registro_tempertature(giorno):
+    for i in range(0, 24): # Esegue il ciclo per 24 volte
+        # Genera un numero intero casuale tra -3 e 25 e lo aggiunge alla lista
+        giorno.append(random.randint(-3, 25))
+
+def media_giornalira(giorno, nome_giorno):
+    """
+    questa funzione calcola la media di un distribuzione numerica
+    :parms liste: lista contenete un giorno di misurazioni
+    :parms: nome del giorno
+    """
+    somma = 0 # Inizializza il contenitore per la somma totale
+    for i in giorno: # Esamina ogni temperatura registrata nella lista
+        somma = i + somma # Aggiunge il valore corrente alla somma totale
+    media = somma / 24 # Divide la somma per il numero di ore (24)
+    # Stampa il risultato con 2 decimali usando la formattazione .f2
+    print(f"{nome_giorno} - Media: {media:.2f}°C")
+    return media # Restituisce il valore calcolato per usarlo in altre funzioni
+
+# Funzione per calcolare la varianza (necessaria per calcolare lo sbalzo)
+def varianza_temperature(media, giorno):
+    calcolo = 0 # Variabile temporanea per il calcolo della differenza
+    varianza = 0 # Accumulatore per la somma dei quadrati
+    for i in range(0, len(giorno)): # Cicla su tutte le temperature del giorno
+        # Calcola la differenza tra la temperatura e la media, elevandola al quadrato
+        calcolo = (giorno[i] - media) ** 2
+        varianza = calcolo + varianza # Somma il quadrato ottenuto al totale
+    # Divide la somma dei quadrati per il numero totale di misurazioni
+    varianza = varianza / len(giorno)
+    return varianza # Restituisce la varianza (numero tecnico di passaggio)
+
+# Funzione per calcolare lo sbalzo medio reale (Deviazione Standard)
+def deviazione_standard(varianza, nome_giorno):
+    # Calcola la radice quadrata della varianza per tornare all'unità di misura originale
+    risultato = varianza ** 0.5
+    # Stampa lo sbalzo medio, che indica quanto variano le temperature in quel giorno
+    print(f"{nome_giorno} - Sbalzo medio di temperatura: {risultato:.2f}°C")
+    return risultato # Restituisce lo sbalzo per calcoli futuri
