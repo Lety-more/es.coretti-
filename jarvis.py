@@ -1,5 +1,6 @@
 # es preparazione verifica: analisi statistica temperature settimanali
 import random # Importa la libreria per generare numeri casuali
+import matplotlib.pylot as plt
 
 # Funzione per riempire la lista di un giorno con 24 temperature (una per ora)
 def registro_tempertature(giorno):
@@ -40,3 +41,20 @@ def deviazione_standard(varianza, nome_giorno):
     # Stampa lo sbalzo medio, che indica quanto variano le temperature in quel giorno
     print(f"{nome_giorno} - Sbalzo medio di temperatura: {risultato:.2f}°C")
     return risultato # Restituisce lo sbalzo per calcoli futuri
+ 
+def crea_istogramma(dati, num_bins=10, titolo="Istogramma", colore="skyblue"):
+    """
+    Crea e visualizza un istogramma a partire da una lista o array di numeri.
+ 
+    :param dati: Lista o array di valori numerici
+    :param num_bins: Numero di intervalli (bins) dell'istogramma
+    :param titolo: Titolo del grafico
+    :param colore: Colore delle barre
+    """
+    plt.figure(figsize=(8, 5))
+    plt.hist(dati, bins=num_bins, color=colore, edgecolor="black", alpha=0.7)
+    plt.title(titolo)
+    plt.xlabel("Valori")
+    plt.ylabel("Frequenza")
+    plt.grid(axis="y", linestyle="--", alpha=0.7)
+    plt.show()
