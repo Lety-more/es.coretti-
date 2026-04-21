@@ -36,6 +36,7 @@ varianza_sab = varianza_temperature(media_sab, sabato)
 varianza_dom = varianza_temperature(media_dom, domenica)
 
 # Calcolo e stampa degli sbalzi (Deviazione Standard)
+
 dev_std_lun = deviazione_standard(varianza_lun, "Lunedi")
 dev_std_mar = deviazione_standard(varianza_mar, "Martedi")
 dev_std_mer = deviazione_standard(varianza_mer, "Mercoledi")
@@ -43,5 +44,17 @@ dev_std_gio = deviazione_standard(varianza_gio, "Giovedi")
 dev_std_ven = deviazione_standard(varianza_ven, "Venerdi")
 dev_std_sab = deviazione_standard(varianza_sab, "Sabato")
 dev_std_dom = deviazione_standard(varianza_dom, "Domenica")
+
 #istogramma
+"""
 crea_istogramma(lunedi)
+crea_istogramma(martedi)
+crea_istogramma(mercoledi)
+crea_istogramma(giovedi)
+crea_istogramma(venerdi)
+crea_istogramma(sabato)
+crea_istogramma(domenica)
+"""
+# covarianza
+lun_mar_cov=covarianza(lunedi,martedi)
+print(lun_mar_cov)

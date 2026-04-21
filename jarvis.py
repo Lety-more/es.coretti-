@@ -1,6 +1,6 @@
 # es preparazione verifica: analisi statistica temperature settimanali
 import random # Importa la libreria per generare numeri casuali
-import matplotlib.pylot as plt
+import matplotlib.pyplot as plt
 
 # Funzione per riempire la lista di un giorno con 24 temperature (una per ora)
 def registro_tempertature(giorno):
@@ -58,3 +58,12 @@ def crea_istogramma(dati, num_bins=10, titolo="Istogramma", colore="skyblue"):
     plt.ylabel("Frequenza")
     plt.grid(axis="y", linestyle="--", alpha=0.7)
     plt.show()
+    
+def covarianza(giorno1,giorno2):
+    calcolo=0
+    for i in range(0,24):
+        calcolo=calcolo+(giorno1[i]-(sum(giorno1) / len(giorno1)))*(giorno2[i]-(sum(giorno2) / len(giorno2)))
+    calcolo=calcolo/24
+    return calcolo
+        
+        
